@@ -18,6 +18,10 @@ def home():
 def hello():
     return {"message": "Hello"}
 
+@app.get('/items')
+def get_items():
+    return {"id": 1,
+            "name": "television"}
 
 @app.post('/items')
 def create_item(item: Item):
