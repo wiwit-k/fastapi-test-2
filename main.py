@@ -35,18 +35,13 @@ data = [
 def home():
     return {"Hello": "World"}
 
-
-@app.get('/hello')
-def hello():
-    return {"message": "Hello"}
-
 @app.get('/items')
 def get_items():
     return data
 
 @app.post('/items')
 def create_item(item: Item):
-    print(item.name, item.price)
+    data.append(item)
     return item
 
 @app.delete('/items/{id}')
