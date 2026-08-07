@@ -17,8 +17,8 @@ app.add_middleware(
 
 
 class Item(BaseModel):
+    id: int
     name: str
-    price: float
 
 data = [
     {
