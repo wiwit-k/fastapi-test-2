@@ -22,11 +22,11 @@ class Item(BaseModel):
 
 data = [
     {
-        "id": 1,
+        "id": 101,
         "name": "television"
     },
     {
-        "id": 2,
+        "id": 102,
         "name": "radio"
     }
 ]
@@ -44,9 +44,10 @@ def create_item(item: Item):
     data.append(item)
     return item
 
-@app.delete('/items/{id}')
-def delete_item(id: int):
-    return {"message": ""}
+@app.delete('/items/{pos}')
+def delete_item(pos: int):
+    data.pop(pos)
+    return data
 
 
 """ @app.post('/items')
