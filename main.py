@@ -20,6 +20,17 @@ class Item(BaseModel):
     name: str
     price: float
 
+data = [
+    {
+        "id": 1,
+        "name": "television"
+    },
+    {
+        "id": 2,
+        "name": "radio"
+    }
+]
+
 @app.get('/')
 def home():
     return {"Hello": "World"}
@@ -31,13 +42,16 @@ def hello():
 
 @app.get('/items')
 def get_items():
-    return {"id": 1,
-            "name": "television"}
+    return data
 
 @app.post('/items')
 def create_item(item: Item):
     print(item.name, item.price)
     return item
+
+@app.delete('/items/{id}')
+def delete_item(id: int):
+    return {"message": ""}
 
 
 """ @app.post('/items')
