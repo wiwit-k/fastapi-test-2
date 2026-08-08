@@ -43,6 +43,10 @@ def get_items():
 def mileToKilometer(mile: float):
     return mile/0.621371
 
+@app.get('/fahrenheit-to-celsius')
+def fahrenheitToCelsius(f: float):
+    return (f - 32.0)*5.0/9.0
+
 @app.post('/items')
 def create_item(item: Item):
     data.append(item)
