@@ -39,6 +39,10 @@ def home():
 def get_items():
     return data
 
+@app.get('/mile-to-kilometer')
+def mileToKilometer(mile: float):
+    return mile/0.621371
+
 @app.post('/items')
 def create_item(item: Item):
     data.append(item)
