@@ -20,7 +20,7 @@ class Item(BaseModel):
     id: int
     name: str
 
-data = [
+items = [
     {
         "id": 101,
         "name": "television"
@@ -31,13 +31,18 @@ data = [
     }
 ]
 
+todos = [
+    {"name": "Sports", "description": "Go to the gym"},
+    {"name": "Read", "description": "Read 10 pages"},
+]
+
 @app.get('/')
 def home():
     return {"Hello": "World"}
 
 @app.get('/items')
 def get_items():
-    return data
+    return items
 
 @app.get('/mile-to-kilometer')
 def mileToKilometer(mile: float):
@@ -49,13 +54,13 @@ def fahrenheitToCelsius(f: float):
 
 @app.post('/items')
 def create_item(item: Item):
-    data.append(item)
+    items.append(item)
     return item
 
 @app.delete('/items/{pos}')
 def delete_item(pos: int):
-    data.pop(pos)
-    return data
+    items.pop(pos)
+    return items
 
 
 """ @app.post('/items')
